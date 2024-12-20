@@ -34,7 +34,16 @@ const events = [
   {
     id: 4,
     imageUrl: "/images/chess-s1-logo-white.png",
-    title: "CS:GO Invitational",
+    title: "Chess tourny",
+    seasonNumber: 2,
+    prizePool: 75000,
+    slots: 32,
+    date: "2023-07-30",
+  },
+  {
+    id: 5,
+    imageUrl: "/images/F84ssb-season-1-logo.png",
+    title: "Fifa 84",
     seasonNumber: 2,
     prizePool: 75000,
     slots: 32,
@@ -55,7 +64,7 @@ export default function EventsSection() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Upcoming Events</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
         {events.map((event) => (
           <EventCard
             key={event.id}

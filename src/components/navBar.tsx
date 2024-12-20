@@ -25,7 +25,7 @@ const NavItem = ({
 }) => (
   <Link
     href={href}
-    className="flex items-center space-x-2 text-gray-800 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
+    className="flex items-center space-x-2 text-gray-200 hover:text-gray-300 transition-colors duration-200"
   >
     <Icon className="h-5 w-5" />
     <span>{children}</span>
