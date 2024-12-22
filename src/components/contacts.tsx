@@ -35,24 +35,31 @@ export default function Contact() {
       label: "Discord",
     },
   ];
+
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center bg-black text-white scroll-mt-16"
+      className="min-h-96 flex flex-col items-center justify-center bg-black text-white p-8 scroll-mt-16"
     >
-      <div className="max-w-md w-full">
-        <h2 className="text-3xl font-bold mb-4 text-center">Contact Us</h2>
+      <div className="flex flex-col items-center mb-6">
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-3 h-3 rounded-full bg-green-500" />
+          <h2 className="text-3xl font-bold uppercase font-mono">
+            Arekta <span className="text-emerald-500">Gaming</span>
+          </h2>
+        </div>
+        <p className="text-lg">info@arektagaming.com</p>
       </div>
-      <div className="flex items-center justify-center gap-4 bg-black p-4">
+
+      <div className="flex gap-4">
         {socialLinks.map((social) => (
           <Link
             key={social.label}
             href={social.href}
-            className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-emerald-500/20 transition-all duration-300 hover:border-emerald-500/50"
+            className="group flex h-10 w-10 items-center justify-center rounded-full border border-emerald-500 transition-all duration-300 hover:bg-emerald-500 hover:-translate-y-1"
             aria-label={social.label}
           >
-            <div className="absolute -inset-0.5 rounded-full bg-emerald-500/20 blur opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <social.icon className="relative h-5 w-5 text-white transition-transform duration-300 group-hover:scale-110" />
+            <social.icon className="h-5 w-5 text-white transition-transform duration-300 group-hover:scale-110" />
           </Link>
         ))}
       </div>

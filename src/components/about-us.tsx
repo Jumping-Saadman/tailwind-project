@@ -7,7 +7,7 @@ export default function About() {
       id="about"
       className="min-h-screen flex items-center justify-center bg-black text-white scroll-mt-16 py-20"
     >
-      <div className="max-w-7xl w-full mx-auto px-4">
+      <div className="max-w-7xl w-full mx-auto px-4 ">
         <div className="flex items-center gap-2 justify-center mb-16">
           <div className="w-3 h-3 rounded-full bg-green-500" />
           <h2
@@ -20,13 +20,25 @@ export default function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Content Production - Spans 5 columns */}
-          <Card className="lg:col-span-5 bg-black/50 border border-gray-800 hover:border-gray-700 transition-colors p-8">
+          <Card
+            className="
+            lg:col-span-5 
+            bg-black/50 border 
+            border-gray-800 
+            hover:border-gray-700
+            transform
+            transition
+            duration-300
+            hover:-translate-y-1"
+          >
             <div className="bg-black/80 p-3 w-fit rounded-lg mb-6">
               <FileText className="w-6 h-6 text-white" />
             </div>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-1 h-8 bg-gray-500" />
-              <h3 className="text-2xl font-bold">Content Production</h3>
+              <h3 className="text-white text-2xl font-bold">
+                Content Production
+              </h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
               Arekta Gaming Limited, with its experienced production team
@@ -38,13 +50,20 @@ export default function About() {
           </Card>
 
           {/* Esports Broadcasting - Spans 7 columns */}
-          <Card className="lg:col-span-7 bg-black/50 border border-gray-800 hover:border-gray-700 transition-colors p-8">
+          <Card
+            className="lg:col-span-7 bg-black/50 border border-gray-800 hover:border-gray-700 transform
+            transition
+            duration-300
+            hover:-translate-y-1"
+          >
             <div className="bg-black/80 p-3 w-fit rounded-lg mb-6">
               <Youtube className="w-6 h-6 text-white" />
             </div>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-1 h-8 bg-gray-500" />
-              <h3 className="text-2xl font-bold">Esports Broadcasting</h3>
+              <h3 className="text-white text-2xl font-bold">
+                Esports Broadcasting
+              </h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
               We specialize in creating interactive, appealing and informative
@@ -55,13 +74,20 @@ export default function About() {
           </Card>
 
           {/* Event Management - Spans 4 columns */}
-          <Card className="lg:col-span-4 bg-black/50 border border-gray-800 hover:border-gray-700 transition-colors p-8">
+          <Card
+            className="lg:col-span-4 bg-black/50 border border-gray-800 hover:border-gray-700 transform
+            transition
+            duration-300
+            hover:-translate-y-1"
+          >
             <div className="bg-black/80 p-3 w-fit rounded-lg mb-6">
               <Wrench className="w-6 h-6 text-white" />
             </div>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-1 h-8 bg-gray-500" />
-              <h3 className="text-2xl font-bold">Event Management</h3>
+              <h3 className="text-white text-2xl font-bold">
+                Event Management
+              </h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
               Any LAN or Online event management is one of our key expertise.
@@ -72,13 +98,18 @@ export default function About() {
           </Card>
 
           {/* Gaming Solutions - Spans 8 columns */}
-          <Card className="lg:col-span-8 bg-black/50 border border-gray-800 hover:border-gray-700 transition-colors p-8">
+          <Card
+            className="lg:col-span-8 bg-black/50 border border-gray-800 hover:border-gray-700 transform
+            transition
+            duration-300
+            hover:-translate-y-1"
+          >
             <div className="bg-black/80 p-3 w-fit rounded-lg mb-6">
               <Globe className="w-6 h-6 text-white" />
             </div>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-1 h-8 bg-gray-500" />
-              <h3 className="text-2xl font-bold">
+              <h3 className="text-white text-2xl font-bold">
                 Gaming or Esports Solutions
               </h3>
             </div>
