@@ -2,15 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import {
-  Menu,
-  X,
-  Home,
-  Info,
-  Mail,
-  TypeIcon as type,
-  LucideIcon,
-} from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const NavItem = ({
