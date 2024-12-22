@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { EventCard } from "@/components/event-card";
 
 const events = [
