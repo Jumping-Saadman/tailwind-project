@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import {
   Menu,
@@ -15,26 +14,39 @@ import {
 import { Button } from "@/components/ui/button";
 
 const NavItem = ({
-  href,
+  targetId,
   children,
-  icon: Icon,
+  onClick,
+  isActive,
 }: {
-  href: string;
+  targetId: string;
   children: React.ReactNode;
-  icon: LucideIcon;
+  onClick: () => void;
+  isActive: boolean;
 }) => (
-  <Link
-    href={href}
-    className="flex items-center space-x-2 text-gray-200 hover:text-gray-300 transition-colors duration-200"
+  <button
+    onClick={() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      onClick();
+    }}
+    className={`flex items-center space-x-2 transition-all duration-300 ${
+      isActive
+        ? "text-green-500 font-semibold"
+        : "text-gray-400 hover:text-gray-100"
+    }`}
   >
-    <Icon className="h-5 w-5" />
     <span>{children}</span>
-  </Link>
+  </button>
 );
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const observerRefs = useRef<IntersectionObserver[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +56,32 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const sections = ["home", "events", "about", "contact"];
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setActiveSection(section);
+            }
+          },
+          { threshold: 0.5 }
+        );
+        observer.observe(element);
+        observerRefs.current.push(observer);
+      }
+    });
+
+    return () => {
+      observerRefs.current.forEach((observer) => observer.disconnect());
+    };
+  }, []);
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <nav
@@ -56,28 +94,50 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
+            <button
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                closeMenu();
+              }}
+              className="flex-shrink-0"
+            >
               <Image
                 src="/logos/Arekta-gaming-logo.svg"
                 alt="Logo"
-                width={80}
-                height={80}
-                className="h-8 w-auto"
+                width={160}
+                height={120}
+                className="h-10 w-auto"
               />
-            </Link>
+            </button>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <NavItem href="/" icon={Home}>
+              <NavItem
+                targetId="home"
+                onClick={closeMenu}
+                isActive={activeSection === "home"}
+              >
                 Home
               </NavItem>
-              <NavItem href="/events" icon={Home}>
+              <NavItem
+                targetId="events"
+                onClick={closeMenu}
+                isActive={activeSection === "events"}
+              >
                 Events
               </NavItem>
-              <NavItem href="/about" icon={Info}>
+              <NavItem
+                targetId="about"
+                onClick={closeMenu}
+                isActive={activeSection === "about"}
+              >
                 About us
               </NavItem>
-              <NavItem href="/contact" icon={Mail}>
+              <NavItem
+                targetId="contact"
+                onClick={closeMenu}
+                isActive={activeSection === "contact"}
+              >
                 Contact
               </NavItem>
             </div>
@@ -102,16 +162,32 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <NavItem href="/" icon={Home}>
+            <NavItem
+              targetId="home"
+              onClick={closeMenu}
+              isActive={activeSection === "home"}
+            >
               Home
             </NavItem>
-            <NavItem href="/events" icon={Home}>
+            <NavItem
+              targetId="events"
+              onClick={closeMenu}
+              isActive={activeSection === "events"}
+            >
               Events
             </NavItem>
-            <NavItem href="/about" icon={Info}>
+            <NavItem
+              targetId="about"
+              onClick={closeMenu}
+              isActive={activeSection === "about"}
+            >
               About us
             </NavItem>
-            <NavItem href="/contact" icon={Mail}>
+            <NavItem
+              targetId="contact"
+              onClick={closeMenu}
+              isActive={activeSection === "contact"}
+            >
               Contact
             </NavItem>
           </div>

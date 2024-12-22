@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { Button } from "./ui/button";
 
 export default function HomeSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -37,12 +38,36 @@ export default function HomeSection() {
         <Image
           src="/logos/AG-typeface-bangla.svg"
           alt=""
-          width={240}
-          height={240}
+          width={200}
+          height={200}
+          className="ml-auto mr-auto mb-4 scale-110"
         />
-        <p className="text-xl">
-          Bringing revolution in esports production and ecosystem of Bangladesh
-        </p>
+        <p className="text-xl">Bringing revolution in esports</p>
+        <p className="text-xl">production and ecosystem of Bangladesh</p>
+        <Button
+          className="
+            h-12
+            w-52
+            mt-6
+            border-2
+            border-emerald-400
+            transform
+            transition
+            duration-500
+            hover:-translate-y-2
+            hover:scale-105
+            hover:bg-emerald-400
+            hover:text-black
+            bg-black
+            font-mono
+            font-bold
+            text-2xl
+            shadow-lg
+           shadow-emerald-500/50
+          "
+        >
+          CREDENTIALS
+        </Button>
       </div>
     </section>
   );

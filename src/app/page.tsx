@@ -6,10 +6,18 @@ import EventsSection from "@/components/events";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <HomeSection />
-      <EventsSection />
-      <AboutSection />
-      <ContactsSection />
+      <section id="home">
+        <HomeSection />
+      </section>
+      <section id="events">
+        <EventsSection />
+      </section>
+      <section id="about">
+        <AboutSection />
+      </section>
+      <section id="contact">
+        <ContactsSection />
+      </section>
     </main>
   );
 }

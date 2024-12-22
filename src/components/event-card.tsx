@@ -56,7 +56,22 @@ export function EventCard({
         </div>
       </CardContent>
       <CardFooter className="p-4 bg-black ">
-        <Button onClick={onDetailsClick} className="w-full">
+        <Button
+          onClick={onDetailsClick}
+          className="w-60
+            border-2
+            border-emerald-400
+            transform
+            transition
+            duration-500
+            hover:bg-emerald-400
+            hover:text-black
+            bg-black
+            font-mono
+            font-bold
+            shadow-lg
+           shadow-emerald-500/50"
+        >
           More Details
         </Button>
       </CardFooter>

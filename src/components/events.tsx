@@ -75,6 +75,8 @@ export default function EventsSection() {
             slots={event.slots}
             date={event.date}
             onDetailsClick={() => handleDetailsClick(event.id)}
+            p-0
+            m-0
           />
         ))}
       </div>
