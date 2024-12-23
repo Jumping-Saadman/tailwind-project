@@ -8,11 +8,6 @@ import { ArrowUp } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata: Metadata = {
-//   title: "Home | Arekta Gaming",
-//   description: "A simple website",
-// };
-
 export default function RootLayout({
   children,
 }: {

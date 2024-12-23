@@ -62,7 +62,15 @@ export default function EventsSection() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Upcoming Events</h1>
+      <div className="flex items-center gap-2 justify-center mb-16">
+        <div className="w-3 h-3 rounded-full bg-green-500" />
+        <h2
+          className="text-5xl font-bold uppercase"
+          style={{ fontFamily: "monospace" }}
+        >
+          Events
+        </h2>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
         {events.map((event) => (
           <EventCard
