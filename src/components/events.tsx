@@ -51,15 +51,6 @@ const events = [
 ];
 
 export default function EventsSection() {
-  // const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
-
-  // const handleDetailsClick = (eventId: number) => {
-  //   setSelectedEvent(eventId);
-  //   // Here you would typically navigate to a detailed event page
-  //   // or open a modal with more information
-  //   console.log(`Showing details for event ${eventId}`);
-  // };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center gap-2 justify-center mb-16">

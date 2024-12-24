@@ -16,7 +16,7 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gray-800 text-white scroll-mt-16"
+      className="relative min-h-screen flex items-center justify-center bg-gray-800 text-white scroll-mt-16"
     >
       <video
         ref={videoRef}
@@ -24,14 +24,17 @@ export default function HomeSection() {
         loop
         muted
         playsInline
-        className="absolute top-50 left-0 w-full h-full object-cover"
+        className="absolute top-[-20%] left-0 w-full h-full object-cover"
         aria-hidden="true"
       >
         <source src="/videos/hero-video1.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div
-        className="absolute top-50 left-0 w-full h-full bg-black bg-opacity-50"
+        className="absolute top-0 left-0 w-full h-full"
+        style={{
+          background: "radial-gradient(ellipse, transparent, black 40%)",
+        }}
         aria-hidden="true"
       ></div>
       <div className="relative z-10 text-center text-white">
